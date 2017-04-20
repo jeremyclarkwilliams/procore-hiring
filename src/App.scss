@@ -1,0 +1,364 @@
+// colors
+$white:       #fff;
+$black:       #000;
+$orange:      #f38034;
+$gray-light:  #e7e7e7;
+$gray:        #999;
+$gray-dark:   #676767;
+$blue:        #2770b3;
+
+// main styles
+.app {
+
+}
+
+.header,
+.content {
+  padding: 3rem 6rem;
+
+  @media (max-width: 767px) {
+    padding: 3rem;
+  }
+}
+
+.header {
+  background: $orange;
+  border-bottom: 2rem solid $gray-light;
+  text-align: left;
+
+  @media (max-width: 500px) {
+    text-align: center;
+  }
+
+  .hdr {
+    color: $white;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin: 0;
+  }
+}
+
+.content {
+
+}
+
+.btn {
+  align-items: center;
+  background: $blue;
+  border: 0 none;
+  border-radius: .4rem;
+  color: $white;
+  display: flex;
+  justify-content: center;
+  padding: 6px 1.4rem;
+  transition: background .5s;
+
+  &:hover,
+  &:focus {
+    background: lighten($blue, 10%);
+  }
+
+  &:disabled {
+    background: $gray;
+    cursor: default;
+  }
+
+  .icon-circle,
+  .btn-text {
+    display: inline-block;
+  }
+
+  img {
+    display: inline-block;
+    height: 16px;
+    vertical-align: middle;
+    width: 16px;
+  }
+
+  .icon-circle {
+    background: $white;
+    border-radius: 50%;
+    height: 16px;
+    margin-right: 1rem;
+    padding: 3px;
+    width: 16px;
+
+    img {
+      height: 10px;
+      vertical-align: top;
+      width: 10px;
+    }
+  }
+
+  .btn-text {
+    color: $white;
+    font-size: 12px;
+    line-height: 1;
+  }
+}
+
+.action-panel {
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .search-form {
+    font-size: 0;
+    line-height: 0;
+
+    @media (max-width: 500px) {
+      flex-basis: 100%;
+      width: 100%;
+    }
+
+    .search-field,
+    .search-submit-btn {
+      display: inline-block;
+      vertical-align: top;
+    }
+
+    .search-field {
+      background: $white;
+      border: 1px solid $gray-dark;
+      border-radius: .4rem 0 0 .4rem;
+      border-right: 0 none;
+      font-size: 12px;
+      line-height: 1;
+      padding: 6px 1.4rem;
+      width: 30rem;
+
+      &:focus {
+        border-color: $blue;
+      }
+
+      @media (max-width: 500px) {
+        width: 80%;
+      }
+    }
+
+    .search-submit-btn {
+      border-radius: 0 .4rem .4rem 0;
+
+      @media (max-width: 500px) {
+        width: 20%;
+      }
+    }
+  }
+
+  .add-contact-btn {
+
+    @media (max-width: 500px) {
+      flex-basis: 100%;
+      margin-top: 3rem;
+    }
+  }
+}
+
+.contacts-table {
+  background: $white;
+  border: .1rem solid $gray-dark;
+  border-radius: .4rem;
+  margin-top: 3rem;
+  text-align: left;
+  width: 100%;
+
+  thead,
+  tbody {
+    display: block;
+  }
+
+  tr {
+    display: table;
+    width: 100%;
+  }
+
+  th,
+  td {
+    border-left: .1rem solid $gray-light;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    padding: 1rem 1.4rem;
+    vertical-align: top;
+    width: 15%;
+    word-break: break-word;
+
+    &:first-child {
+      border-left: 0 none;
+    }
+
+    &:last-child {
+      width: 30%;
+    }
+  }
+
+  th {
+    background: $gray-dark;
+    border-top: 0 none;
+    color: $white;
+    cursor: pointer;
+    position: relative;
+
+    &:hover,
+    &:focus {
+      background: lighten($gray-dark, 10%);
+    }
+
+    &:after {
+      content: '';
+      height: 0;
+      position: absolute;
+      right: 1.4rem;
+      top: 50%;
+      width: 0;
+    }
+
+    &.asc:after {
+      border-color: transparent transparent $white transparent;
+      border-style: solid;
+      border-width: 5px;
+      transform: translateY(-7px);
+    }
+
+
+    &.desc:after {
+      border-color: $white transparent transparent transparent;
+      border-style: solid;
+      border-width: 5px;
+      transform: translateY(-2px);
+    }
+  }
+
+  tbody {
+    max-height: calc(100vh - 24rem);
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    td {
+      border-top: .1rem solid $gray-light;
+    }
+  }
+}
+
+.modal {
+  background: rgba($black, .7);
+  display: none;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+
+  &.active {
+    display: block;
+  }
+
+  .dialog {
+    background: $white;
+    border-radius: .4rem;
+    box-shadow: 0 0 20px 10px rgba($black, .25);
+    left: 50%;
+    overflow: hidden;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+
+    @media (max-width: 500px) {
+      width: 80vw;
+    }
+  }
+
+  .header {
+    background: $blue;
+    border: 0 none;
+    margin: 0 -3rem;
+    padding: 1.4rem 3rem;
+    position: relative;
+    width: calc(100% + 6rem);
+
+    .hdr {
+      font-size: 1.6rem;
+    }
+
+    .close-btn {
+      background: none;
+      border-radius: 0;
+      height: auto;
+      padding: 0;
+      position: absolute;
+      right: 3rem;
+      top: 1.4rem;
+      transition: transform .5s;
+      width: auto;
+
+      .icon-circle {
+        margin: 0;
+        transform: rotate(45deg);
+      }
+
+      &:hover,
+      &:focus {
+        transform: rotate(180deg);
+      }
+    }
+  }
+
+  .contact-form {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 3rem 2rem;
+
+    .label {
+      flex-basis: 50%;
+      font-size: 1.2rem;
+      margin-top: 2rem;
+
+      &:nth-of-type(odd) {
+        padding-right: 2rem;
+      }
+
+      &:nth-of-type(even) {
+        padding-left: 2rem;
+      }
+
+      &.textarea {
+        flex-basis: 100%;
+        padding: 0;
+
+        .field {
+          height: 6rem;
+          padding: 1rem 1.4rem;
+        }
+      }
+    }
+
+    .field {
+      background: $white;
+      border: .1rem solid $gray-dark;
+      border-radius: .4rem;
+      display: block;
+      font-size: 1.2rem;
+      line-height: 1;
+      margin-top: .6rem;
+      padding: .6rem 1.4rem;
+      width: 100%;
+
+      &:focus {
+        border-color: $blue;
+      }
+    }
+  }
+
+  .footer {
+    border-top: 1px solid $gray;
+    margin: 2rem -3rem 0;
+    padding: 2rem 3rem 0;
+    text-align: right;
+    width: calc(100% + 6rem);
+
+    .btn {
+      display: inline-block;
+    }
+  }
+}
