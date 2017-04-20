@@ -5,7 +5,8 @@
   "dependencies": {
     "npm": "3.3.6",
     "react": "^15.5.3",
-    "react-dom": "^15.5.3"
+    "react-dom": "^15.5.3",
+    "node-sass": "4.5.2"
   },
   "devDependencies": {
     "npm-run-all": "^4.0.2",
